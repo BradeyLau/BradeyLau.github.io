@@ -62,7 +62,7 @@ int main(int argc, char* argv[]) {
 }
 ~~~
 
-![image-20241009205913425](C:\MyBlog\_posts\image-202410093.png)
+![image-20241009205913425](https://github.com/BradeyLau/BradeyLau.github.io/blob/master/_posts/image-202410093.png?raw=true)
 
 显然，argv[0]就是指向程序名称的字符串指针。
 
@@ -80,7 +80,7 @@ int main(int argc, char* argv[]) {
 }
 ~~~
 
-![image-20241009211009138](C:\MyBlog\_posts\image-202410094.png)
+![image-20241009211009138](https://github.com/BradeyLau/BradeyLau.github.io/blob/master/_posts/image-202410094.png?raw=true)
 
 可以看到，我们在命令行中执行程序时给了两个参数string1和string2，于是程序输出结果是参数有3个：程序本身的名称、string1j和string2。
 
