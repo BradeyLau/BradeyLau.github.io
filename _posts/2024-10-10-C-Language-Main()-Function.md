@@ -1,5 +1,5 @@
 ---
-title: C语言中 main 函数的类型和参数问题
+title: C语言中 main 函数的类型和参数
 tags: Knowledge
 ---
 
