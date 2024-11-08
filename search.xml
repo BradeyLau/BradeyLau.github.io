@@ -11,6 +11,12 @@
         <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>在一个C语言源文件里，不论代码有多少行，程序都是从main函数开始执行的。__main函数也被称为程序的入口，有且仅有一个，即使有多个 .c 文件，也只能存在一个main函数__。</p><span id="more"></span><h1 id="main"><a href="#main" class="headerlink" title="main()"></a>main()</h1><p>首先，我们来认识一下main函数的标准写法：</p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//code</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>相信大家曾经在书上见过另一种main函数的写法，如下：</p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>有何区别？主要区别在于函数是否有返回值，int表示函数有一个整型的返回值，void表示函数不需要返回值。虽然在某些编译器中void main可以编译通过，但在其他编译器中可能会报错，为了代码的可移植性，推荐使用**int main()**。</p><p>那么这种main函数呢？</p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//code</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里的void表示main函数不需要参数，这个写法不算是错误的，是符合标准的，也可以什么都不写。</p><p>也许你会有这样的疑问，如果main函数有参数呢？很好！那什么情况下会用到这些参数呢？我们都知道程序需要交互，这些main函数里的参数就能让我们在程序启动的时候给程序传参</p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span>&#123;</span><br><span class="line">    <span class="comment">//code</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>argc</strong>: argument count，是命令行参数的数量，包括程序本身的名称。因此，argc的值至少是1，并且argc不用用户输入，程序会自己计算值是多少。</p><p><strong>argv</strong>: argument vector，是指向字符串数组的指针，其中每个元素是一个指向 传递给程序的参数的 指针。这些参数是通过命令行传递给程序的。</p><p>举个例子</p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;argc=%d\n&quot;</span>, argc);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, *argv);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="https://img.548248664.xyz/png/241107_1.png" alt="image1"></p><p>显然，argv[0]就是指向程序名称的字符串指针。</p><p>再举个例子，这次我们多输入几个参数值</p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span> &#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;参数个数：%d\n&quot;</span>, argc);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;程序名称：%s\n&quot;</span>, argv[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; argc; i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;参数 %d: %s\n&quot;</span>, i, argv[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="https://img.548248664.xyz/png/241107_2.png" alt="image1"></p><p>可以看到，我们在命令行中执行程序时给了两个参数string1和string2，于是程序输出结果是参数有3个：程序本身的名称、string1j和string2。</p><p>argv[1]是指向string1的字符串指针，argv[2]是指向string2的字符串指针。</p><hr><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>一般情况下，<strong>推荐使用int main()，如果需要给main函数参数，就写成int main(int argc, char* argv[])</strong></p><p>下次再见~</p>]]></content>
       
       
+      <categories>
+          
+          <category> C/C++ </category>
+          
+      </categories>
+      
       
         <tags>
             
@@ -29,6 +35,12 @@
       
         <content type="html"><![CDATA[<p>欢迎你来了解我，听首音乐放松一下吧 &#128516;</p><p><audio controls="controls" loop="loop" preload="auto"        src="http://music.163.com/song/media/outer/url?id=109734.mp3"><br>    </audio></p><p>这是我尝试写的第一篇博客，以后我会在<a href="https://bradeylau.github.io/">这里</a>不定期更新，欢迎常来看看~~</p><span id="more"></span><h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://img.548248664.xyz/jpg/me.jpg" alt="图片"></h2><p>你好呀，我是 Bradey ，关于目标，我特别喜欢<font color="red">ロロノア・ゾロ</font>说的“我要让我的名字响彻天堂”，虽然我没有他那般的豪情壮志，但我也有我的目标：比较现实的就是学好技术，找好工作&#128514;这个世界很浮躁，可我们要沉下来。如果每天花1h练习编程，那么每周就有7h的时间，周末可以多一点，于是我最终决定每周用10h+的时间去练习编程。我想去哪个公司呢？暂时未知，等我了解的差不多了，做个对比分享给大家(挖坑)</p><p>更多的以后再更新吧&#128516;</p>]]></content>
       
+      
+      <categories>
+          
+          <category> Other </category>
+          
+      </categories>
       
       
     </entry>
@@ -50,9 +62,53 @@
     
     
     <entry>
+      <title></title>
+      <link href="/css/custom.css"/>
+      <url>/css/custom.css</url>
+      
+        <content type="html"><![CDATA[/* 页脚与头图透明 */#footer {    background: transparent !important;  }  #page-header {    background: transparent !important;  }    /* 白天模式遮罩透明 */  #footer::before {    background: transparent !important;  }  #page-header::before {    background: transparent !important;  }    /* 夜间模式遮罩透明 */  [data-theme="dark"] #footer::before {    background: transparent !important;  }  [data-theme="dark"] #page-header::before {    background: transparent !important;  }  /* 小冰分类分类磁铁黑夜模式适配 *//* 一般状态 */[data-theme="dark"] .magnet_link_context {  background: #1e1e1e;  color: antiquewhite;}/* 鼠标悬浮状态 */[data-theme="dark"] .magnet_link_context:hover {  background: #3ecdf1;  color: #f2f2f2;}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
+      
+        <content type="html"><![CDATA[var now=new Date;function createtime(){now.setTime(now.getTime()+1e3);var e=new Date("11/06/2024 00:00:00"),t=Math.trunc(234e8+(now-e)/1e3*17),a=(t/1496e5).toFixed(6),o=new Date("11/06/2024 00:00:00"),n=(now-o)/1e3/60/60/24,r=Math.floor(n),i=(now-o)/1e3/60/60-24*r,s=Math.floor(i);1==String(s).length&&(s="0"+s);var d=(now-o)/1e3/60-1440*r-60*s,l=Math.floor(d);1==String(l).length&&(l="0"+l);var g=(now-o)/1e3-86400*r-3600*s-60*l,b=Math.round(g);1==String(b).length&&(b="0"+b);let c="";c=s<18&&s>=9?`<div style="font-size:13px;font-weight:bold">本站居然运行了 ${r} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀</div>`:`<div style="font-size:13px;font-weight:bold">本站居然运行了 ${r} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀</div>`,document.getElementById("workboard")&&(document.getElementById("workboard").innerHTML=c)}setInterval((()=>{createtime()}),1e3);]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>音乐</title>
       <link href="/music/index.html"/>
       <url>/music/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -75,17 +131,6 @@
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
