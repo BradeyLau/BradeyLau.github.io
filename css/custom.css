@@ -1,5 +1,6 @@
 :root {
   /* 样式库,一般放在文件最前面 */
+  --theme-color: #00F5FF; /* 将这里的值设置为你的主题颜色 */
   --trans-light: rgba(255, 255, 255, 0.75);
   --trans-dark: rgba(25, 25, 25, 0.65);
   --border-style: 1px solid rgb(169, 169, 169);
@@ -452,7 +453,7 @@ h6::before {
 #content-inner.layout h4:hover,
 #content-inner.layout h5:hover,
 #content-inner.layout h6:hover {
-  color: var(--#00F5FF);
+  color: var(--theme-color);
 }
 #content-inner.layout h1:hover::before,
 #content-inner.layout h2:hover::before,
@@ -460,11 +461,10 @@ h6::before {
 #content-inner.layout h4:hover::before,
 #content-inner.layout h5:hover::before,
 #content-inner.layout h6:hover::before {
-  color: var(--#00F5FF);
+  color: var(--theme-color);
   -webkit-animation: ccc 6s linear infinite;
   animation: ccc 6s linear infinite;
 }
-
 
 /* fps */
 /* 帧率检测 */
@@ -501,7 +501,7 @@ h6::before {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(#00F5FF);
+  background-color: var(--theme-color);
   background-image: -webkit-linear-gradient(
     45deg,
     rgba(255, 255, 255, 0.4) 25%,
@@ -521,5 +521,5 @@ h6::before {
 
 ::-moz-selection {
   color: #fff;
-  background-color: var(#00FFFF);
+  background-color: var(--theme-color);
 }
