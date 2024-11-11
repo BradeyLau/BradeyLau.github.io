@@ -1,0 +1,351 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>git | Bradey 😏😏</title><meta name="author" content="BradeyLau"><meta name="copyright" content="BradeyLau"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="git 如何连接 GitHub 仓库使用及常用命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git">
+<meta property="og:url" content="https://548248664.xyz/2024/11/11/git/index.html">
+<meta property="og:site_name" content="Bradey 😏😏">
+<meta property="og:description" content="git 如何连接 GitHub 仓库使用及常用命令">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://548248664.xyz/img/avatar.jpg">
+<meta property="article:published_time" content="2024-11-11T03:49:10.000Z">
+<meta property="article:modified_time" content="2024-11-11T04:23:04.526Z">
+<meta property="article:author" content="BradeyLau">
+<meta property="article:tag" content="knowledge">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://548248664.xyz/img/avatar.jpg"><link rel="shortcut icon" href="/./img/giraffe.ico"><link rel="canonical" href="https://548248664.xyz/2024/11/11/git/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'medium_zoom',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'git',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/universe.css"><span id="fps"></span><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/sun.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='./img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: linear-gradient(0deg, #a18cd1 0%,#fbc2eb 100%);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Bradey 😏😏</span></a><a class="nav-page-title" href="/"><span class="site-name">git</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">git</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-11T03:49:10.000Z" title="发表于 2024-11-11 11:49:10">2024-11-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-11T04:23:04.526Z" title="更新于 2024-11-11 12:23:04">2024-11-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1>写在前面</h1>
+<blockquote>
+<p>基本的Linus命令</p>
+<p><code>ls/ll</code> 查看目录</p>
+<p><code>cat</code> 查看内容</p>
+<p><code>touch</code> 创建文件</p>
+<p><code>vi</code> 编辑</p>
+</blockquote>
+<h1>01. 安装及初始化</h1>
+<p>设置用户名和邮箱, 用户名可能有空格,所以使用 <strong>&quot; &quot;</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email mail@examole.com</span><br></pre></td></tr></table></figure>
+<p>查看用户名和邮箱</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name</span><br><span class="line">config config --global user.email</span><br></pre></td></tr></table></figure>
+<p>设置记住账户密码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>Local</code>:一般省略，只对本地仓库有效</p>
+</blockquote>
+<blockquote>
+<p><code>--global</code>:全局配置，对所有仓库生效</p>
+</blockquote>
+<blockquote>
+<p><code>--system</code>:系统配置，对所有用户生效</p>
+</blockquote>
+<h1>02. 新建仓库</h1>
+<p>//初始化当前目录为一个git仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git clone &lt;file_name&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>创建好一个仓库之后,其中必然包含一个<code>.git</code>文件,如果将这个文件删除,那仓库就会变成一个普通的文件夹!</p>
+</blockquote>
+<h1>03. 工作区域</h1>
+<blockquote>
+<p>工作区(Working Director)<code>文件夹</code></p>
+<p><code>git add</code>添加到暂存区</p>
+<p><code>git rm --cached &lt;file&gt; 将文件取消暂存</code></p>
+<p>暂存区(Staging Area/Index)<code>等待被提交</code></p>
+<p><code>git ls-files</code>查看暂存区的文件</p>
+<p><code>git commit</code>提交到本地仓库,<code>只会提交暂存区中的文件</code></p>
+<p>本地仓库(Local Repository)</p>
+</blockquote>
+<h1>04. 文件状态</h1>
+<p>Untrack(未跟踪):新创建的文件,还没有被git管理起来的状态.</p>
+<p>Unstaged(未暂存):修改已有文件.</p>
+<p>Unmodified(未修改):已经被git管理起来,但内容没发生变化.</p>
+<p>Modified(已修改):修改了文件,但还没有进入暂存区.</p>
+<p>Staged(已暂存):已经加入到暂存区.</p>
+<h1>05. 添加和提交文件</h1>
+<p><code>git status</code>查看仓库状态</p>
+<p><code>git add .</code>将当前文件夹添加到暂存区</p>
+<p><code>git add *.c</code>把所有.c文件添加到暂存区</p>
+<p><code>git commit -m &quot;info&quot;</code>,这个信息会被记录到仓库里面</p>
+<p><code>git log</code>查看提交记录</p>
+<p>–all 显示所有分支</p>
+<p>–pretty=oneline 显示一行</p>
+<p>–abbrev-commit 简洁</p>
+<p>-graph 图形式</p>
+<p><code>git reflog</code>:全部操作记录(提交和回退记录)</p>
+<h1>06. 回退版本</h1>
+<p><code>git reset</code>的默认参数是<code>--mixed</code></p>
+<p><code>git reset --soft</code>回退到某一个版本,并保留工作区和暂存区的所有修改内容</p>
+<p><code>git reset --hard</code>回退到某一个版本,丢弃工作区和暂存区的所有修改内容</p>
+<p><code>git reset --mixed</code>回退到某一个版本,并保留工作区的修改内容,丢弃暂存区的修改内容</p>
+<p><code>git reset [参数] commit_id</code>,id表示提交时的版本id</p>
+<p><code>git reset HEAD^</code>回退到上一个版本</p>
+<blockquote>
+<p>HEAD是一个指针,指向当前分支的最新节点</p>
+</blockquote>
+<h1>07. 查看差异</h1>
+<p><code>git diff</code>查看文件在工作区,暂存区以及版本库之间的差异</p>
+<p><code>git diff</code>默认比较的是工作区和暂存区之间的差异内容</p>
+<p><code>git diff HEAD</code>比较工作区和版本库之间的差异内容</p>
+<p><code>git diff --cached</code>比较暂存区和版本库之间的差异内容</p>
+<p><code>git diff id1 id2</code>比较两个特定版本之间的差异内容</p>
+<p><code>git diff HEAD~ HEAD</code>和上一个版本比较差异内容,<code>HEAD^</code>也可以</p>
+<p><code>git diff HEAD~2 HEAD</code>和前两个版本比较差异内容</p>
+<p><code>git diff HEAD~ HEAD &lt;file&gt;</code>只查看file的差异内容</p>
+<p><code>git diff &lt;branch_name&gt; &lt;branch_name&gt;</code>比较分之间的差异内容</p>
+<h1>08. 删除文件</h1>
+<p>删除文件一般有两种方法.</p>
+<ol>
+<li>
+<p>先在本地工作区中删除文件,然后<code>git add</code>更新暂存区</p>
+</li>
+<li>
+<p><code>git rm &lt;file&gt;</code>直接从暂存区和工作区删除</p>
+</li>
+</ol>
+<p>最后记得<code>git add</code>,<code>git commit</code>提交到仓库,否则删除的文件还在版本库中</p>
+<p>补充:</p>
+<blockquote>
+<p><code>git rm --cached &lt;file&gt;</code>把文件从暂存区删除,但保留在当前工作区.</p>
+<p><code>git rm -r *</code>递归删除某个目录下的所有子目录和文件夹</p>
+</blockquote>
+<p>命令行指令rm 用于删除文件、目录, rm = remove<br>
+-i 删除前提示, y删除, n不删除<br>
+-r 删除一个目录(含所有文件), r = repository<br>
+-f 强制执行删除操作, f = force<br>
+参数可叠加， 如rm -rf &lt;dir&gt;，直接删除目录</p>
+<h1>09. 忽略文件</h1>
+<p>.git<font color = "#FF0000">ignore</font>应该忽略那些文件呢?</p>
+<ul>
+<li>
+<p>系统或软件自动生成的文件</p>
+</li>
+<li>
+<p>编译产生的中间文件或结果文件</p>
+</li>
+<li>
+<p>运行时生成的日志文件,缓存文件,临时文件</p>
+</li>
+<li>
+<p>涉及身份,密码,口令,密钥等敏感信息的文件</p>
+</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/docs/gitignore" title="git官网匹配规则">git匹配规则</a>:</p>
+<p>从上到下逐行匹配,每一行表示一个忽略模式</p>
+</blockquote>
+<h1>10. SSH配置和克隆仓库</h1>
+<p><code>HTTPS</code>:push时需要验证用户名和密码</p>
+<p><code>SSH</code>:无需验证用户名和密码,但要配置SSH公钥(推荐)</p>
+<ul>
+<li>
+<p>复制仓库SSH链接,在本地<code>git clone &lt;SSH链接&gt;</code>,会提示:<code>Please make sure you have the correct access rights and the repository exists.</code>请不要担心.</p>
+</li>
+<li>
+<p><code>cd</code>到用户根目录下,再<code>cd .ssh</code></p>
+</li>
+<li>
+<p>使用<code>ssh-key generate -t rsa -b 4096</code>生成SSH密钥(<code>-t rsa</code>指定协议rsa,<code>-b 4096</code>指定生成大小为4096)</p>
+</li>
+<li>
+<p>系统提示需要输入密钥的文件名,若第一次使用,直接按回车就好;若第二次使用(之前已经配置过SSH),最好不要直接回车,否则会覆盖掉之前的id_rsa密钥文件,且操作不可逆.</p>
+</li>
+<li>
+<p>此时.ssh文件下多出来两个文件,<code>id_rsa</code>是私钥文件,<code>id_rsa.pub</code>就是公钥文件</p>
+</li>
+<li>
+<p>打开公钥文件,复制里面的内容</p>
+</li>
+<li>
+<p>回到github网页,点击头像进入<code>settings</code>,点击左侧<code>SSH and GPG keys</code>,在右侧点击<code>New SSH key</code>,将公钥粘贴进去,Title任意输入即可</p>
+</li>
+<li>
+<p>最后点击 <font color = "#008000">Add SSH key</font> 就成功地把公钥添加到github上了.</p>
+</li>
+</ul>
+<blockquote>
+<p>如果你的.ssh文件夹里有多个密钥文件,那还要增加一步配置</p>
+<p>创建一个config文件,并把这5行内容添加进去</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># github</span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publicksy</span><br><span class="line">IdentityFile ~/.ssh/&lt;new id_rsa file name&gt;</span><br></pre></td></tr></table></figure>
+<p>意思是,当我们访问github时,指定使用<new id_rsa file name>这个密钥</p>
+<h1>11. 本地仓库和远程仓库</h1>
+<p>git是一种分布式的版本控制系统.本地仓库和远程仓库是相互独立的,我们可以在本地仓库中做任何修改,这并不会影响到远程仓库;同样远程仓库的修改也不会影响到我们本地仓库.</p>
+<p><strong>我们需要一种机制来同步本地仓库和远程仓库的修改内容</strong></p>
+<p><code>git push</code>:把本地仓库的修改推送到远程仓库</p>
+<p><code>git pull</code>:把远程仓库的修改拉取到本地仓库</p>
+<h1>12. 关联本地仓库和远程仓库</h1>
+<p><code>git remote add &lt;shortname&gt; &lt;url&gt;</code>:为本地仓库添加一个远程仓库</p>
+<blockquote>
+<p>以本人的博客为例:</p>
+<p><code>git remote add origin git@SSH链接</code></p>
+<p><code>git remote -v</code>:查看当前本地仓库对应的远程仓库的别名和地址</p>
+<p><code>git branch -M main</code>:指定分支的名称为main,一般默认的分支就是main,所以这一步可以省略</p>
+<p><code>git push [-f] -u origin main</code>:将本地的main分支和远程的origin仓库的main分支关联起来,-f强制覆盖—set-upstream表示推送的同时建立连接(绑定)</p>
+</blockquote>
+<p>其实<code>git push -u origin main:main</code>是完整的命令,<code>-u</code>是upstream的缩写,意思是把本地仓库和别名为origin的远程仓库关联起来(如果远端仓库不是空的)</p>
+<p>main:main就是把本地仓库的main分支推送给远程仓库的main分支,如果他们的名字相同的话,我们可以省略,只写一个main就可以了.<br>
+<font color="red">git push origin master</font>:把本地的master分支推送到远端的origin仓库,master分支不是init就有的,是在第一次commit才有的<br>
+<font color="red">git push --set-upstream origin master:master</font><br>
+当有了链接之后就可以直接git push了</p>
+<p><code>git branch -vv</code>可以查看本地本质和远程分支的对应关系</p>
+<p><code>git pull &lt;远程仓库名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code></p>
+<h1>13.分支使用流程</h1>
+<ul>
+<li>[ ] 待补充内容</li>
+</ul>
+<h1>14.抓取和拉取</h1>
+<p>抓取:<code>git fetch [remote name] [branch name]</code>:将远端的分支抓取到本地,但不会合并</p>
+<p>合并:<code>git merge origin/master</code></p>
+<p>拉去:<code>git pull</code>:抓取加合并</p>
+<h1>15.解决合并冲突</h1>
+<ul>
+<li>待补充</li>
+</ul>
+<h1>写在最后</h1>
+<p>git使用起来非常方便,希望小伙伴们天天使用😁</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://548248664.xyz">BradeyLau</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://548248664.xyz/2024/11/11/git/">https://548248664.xyz/2024/11/11/git/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://548248664.xyz" target="_blank">Bradey 😏😏</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/knowledge/">knowledge</a></div><div class="post-share"><div class="social-share" data-image="/./img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/11/07/c_main/" title="c语言main()函数参数详解"><div class="cover" style="background: linear-gradient(0deg, #b3ffab 0%,#12fff7 100%)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-07</div><div class="info-item-2">c语言main()函数参数详解</div></div><div class="info-2"><div class="info-item-1">写在前面 在一个C语言源文件里，不论代码有多少行，程序都是从main函数开始执行的。main函数也被称为程序的入口，有且仅有一个，即使有多个 .c 文件，也只能存在一个main函数。  main() 首先，我们来认识一下main函数的标准写法： int main()&#123;    //code    return 0;&#125; 相信大家曾经在书上见过另一种main函数的写法，如下： void main()&#123;    //code&#125; 有何区别？主要区别在于函数是否有返回值，int表示函数有一个整型的返回值，void表示函数不需要返回值。虽然在某些编译器中void main可以编译通过，但在其他编译器中可能会报错，为了代码的可移植性，推荐使用int main()。 那么这种main函数呢？ int main(void)&#123;    //code    return...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/./img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">BradeyLau</div><div class="author-info-description"><font color="#00CED1">衣带渐宽终不悔,为伊消得人憔悴</font></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BradeyLau"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/BradeyLau" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Welcome to my blog!</br>网站初步运行,更多内容等待补充~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">01. 安装及初始化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">02. 新建仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">03. 工作区域</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">04. 文件状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">05. 添加和提交文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">06. 回退版本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">07. 查看差异</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">08. 删除文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">09. 忽略文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">10. SSH配置和克隆仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">11. 本地仓库和远程仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">12. 关联本地仓库和远程仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">13.分支使用流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">14.抓取和拉取</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">15.解决合并冲突</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">写在最后</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By BradeyLau</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script></div><script defer src="/js/cursor.js"></script><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script async src="/js/fps.js"></script><script async src="/js/title.js"></script</div></body></html>
