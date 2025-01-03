@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数据结构 | Bradey 😏😏</title><meta name="author" content="BradeyLau"><meta name="copyright" content="BradeyLau"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="数据结构和算法不分家">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构">
+<meta property="og:url" content="https://548248664.xyz/2025/01/03/O/index.html">
+<meta property="og:site_name" content="Bradey 😏😏">
+<meta property="og:description" content="数据结构和算法不分家">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://548248664.xyz/img/avatar.jpg">
+<meta property="article:published_time" content="2025-01-03T05:26:01.000Z">
+<meta property="article:modified_time" content="2025-01-03T11:39:25.433Z">
+<meta property="article:author" content="BradeyLau">
+<meta property="article:tag" content="Bradey">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://548248664.xyz/img/avatar.jpg"><link rel="shortcut icon" href="/./img/giraffe.ico"><link rel="canonical" href="https://548248664.xyz/2025/01/03/O/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'medium_zoom',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据结构',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/universe.css"><span id="fps"></span><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/sun.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/avatar.jpg" onerror="onerror=null;src='./img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: linear-gradient(270deg, #00F260 0%,#0575E6 100%);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Bradey 😏😏</span></a><a class="nav-page-title" href="/"><span class="site-name">数据结构</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">数据结构</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-03T05:26:01.000Z" title="发表于 2025-01-03 13:26:01">2025-01-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-03T11:39:25.433Z" title="更新于 2025-01-03 19:39:25">2025-01-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1>写在前面</h1>
+<h1>1.1 数据结构</h1>
+<p>数据结构(DataStructure)是计算机存储、组织数据（增删改查）的⽅式，指相互之间存在⼀种或多种特定关系的数据元素的集合。<strong>没有⼀种单⼀的数据结构对所有⽤途都有⽤</strong>，所以我们要学各式各样的数据结构，如：线性表、树、图、哈希等</p>
+<h1>1.2 算法</h1>
+<p>算法(Algorithm):就是定义良好的计算过程，他取⼀个或⼀组的值为输⼊，并产⽣出⼀个或⼀组值作为输出。简单来说算法就是⼀系列的计算步骤，⽤来将输⼊数据转化成输出结果。</p>
+<blockquote>
+<p>如何学好数据结构和算法： 秘诀是死磕代码，画图思考</p>
+</blockquote>
+<h1>算法的复杂度</h1>
+<p>算法在编写成可执⾏程序后，运⾏时需要耗费时间资源和空间(内存)资源。因此衡量⼀个算法的好坏，⼀般是从时间和空间两个维度来衡量的，即时间复杂度和空间复杂度。<br>
+时间复杂度主要衡量⼀个算法的运⾏快慢，⽽空间复杂度主要衡量⼀个算法运⾏所需要的额外空间。在计算机发展的早期，计算机的存储容量很⼩。所以对空间复杂度很是在乎。但是经过计算机⾏业的迅速发展，计算机的存储容量已经达到了很⾼的程度。所以我们如今已经不需要再特别关注⼀个算法的空间复杂度。</p>
+<h2 id="时间复杂度">时间复杂度</h2>
+<p>定义：在计算机科学中，算法的时间复杂度是⼀个<strong>函数式T(N)</strong>，N指代变量，并不意味着只有N是变量，它定量描述了该算法的运⾏时间。时<br>
+间复杂度是衡量程序的时间效率，那么为什么不去计算程序的运⾏时间呢？</p>
+<blockquote>
+<ol>
+<li>因为程序运⾏时间和编译环境和运⾏机器的配置都有关系，⽐如同⼀个算法程序，⽤⼀个⽼编译器进⾏编译和新编译器编译，在同样机器下运⾏时间不同。</li>
+<li>同⼀个算法程序，⽤⼀个⽼低配置机器和新⾼配置机器，运⾏时间也不同。</li>
+<li>并且时间只能程序写好后测试，不能写程序前通过理论思想计算评估。</li>
+</ol>
+</blockquote>
+<p>那么算法的时间复杂度是⼀个函数式T(N)到底是什么呢？这个T(N)函数式计算了程序的执⾏次数。通过c语⾔编译链接章节学习，我们知道算法程序被编译后⽣成⼆进制指令，程序运⾏，就是cpu执⾏这些编译好的指令。那么我们通过程序代码或者理论思想计算出程序的执⾏次数的函数式T(N)，假设每句指令执⾏时间基本⼀样(实际中有差别，但是微乎其微)，那么执⾏次数和运⾏时间就是等⽐正相关，这样也脱离了具体的编译运⾏环境。执⾏次数就可以代表程序时间效率的优劣。⽐如解决⼀个问题的算 a程序T(N)=N，算法b程序T(N)=N^2，那么算法a的效率⼀定优于算法b。<br>
+要计算程序能代表增⻓量级的⼤概执⾏次数，复杂度的表⽰通常使⽤⼤O的渐进表⽰法。即用<strong>大O的渐进表示法</strong>表示时间复杂度。</p>
+<h2 id="空间复杂度">空间复杂度</h2>
+<p>空间复杂度也是⼀个数学表达式，是对⼀个算法在运⾏过程中因为算法的需要额外临时开辟的空间。<br>
+空间复杂度不是程序占⽤了多少bytes的空间，因为常规情况每个对象⼤⼩差异不会很⼤，所以空间复杂度算的是变量的个数。<br>
+空间复杂度计算规则基本跟实践复杂度类似，也使⽤⼤O渐进表⽰法。<br>
+注意：<strong>函数运⾏时所需要的栈空间(存储参数、局部变量、⼀些寄存器信息等)在编译期间已经确定好了</strong>，因此<strong>空间复杂度主要通过函数在运⾏时候显式申请的额外空间来确定</strong>。</p>
+<h1>写在最后</h1>
+<p>最坏情况：任意输⼊规模的最⼤运⾏次数(上界)<br>
+平均情况：任意输⼊规模的期望运⾏次数<br>
+最好情况：任意输⼊规模的最⼩运⾏次数(下界)<br>
+<strong>⼤O的渐进表⽰法在实际中⼀般情况关注的是算法的上界，也就是最坏运⾏情况。</strong></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://548248664.xyz">BradeyLau</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://548248664.xyz/2025/01/03/O/">https://548248664.xyz/2025/01/03/O/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://548248664.xyz" target="_blank">Bradey 😏😏</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/./img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/./img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">BradeyLau</div><div class="author-info-description"><font color="#00CED1">衣带渐宽终不悔,为伊消得人憔悴</font></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BradeyLau"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/BradeyLau" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">好久不见，最近刚考完试，加油~</br>网站初步运行,更多内容等待补充~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">1.1 数据结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">1.2 算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">算法的复杂度</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">时间复杂度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">空间复杂度</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">写在最后</span></a></li></ol></div></div><div class="card-widget card-post-series"><div class="item-headline"><i class="fa-solid fa-layer-group"></i><span>DS</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/03/O/" title="数据结构">数据结构</a><time datetime="2025-01-03T05:26:01.000Z" title="发表于 2025-01-03 13:26:01">2025-01-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2025 By BradeyLau</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script></div><script defer src="/js/cursor.js"></script><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script async src="/js/fps.js"></script><script async src="/js/title.js"></script</div></body></html>
